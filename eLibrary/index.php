@@ -24,9 +24,12 @@
 
 		<!--styling-->
 		<style>
+            body{
+                background-color : darkgrey;
+            }
 		/*Banner CSS */
 			#bannerCont{
-				height : 60%;
+				height : 70%;
 				width: 100%;
 				position : relative;
 			}
@@ -43,15 +46,13 @@
 				font-size: 100px;
 			}
 			/* Form CSS */
-			#buttCont{
-				height:400px;
-				width: 100%;
-				background-color:darkgrey;
-			}
-			#butt{
-				padding-top : 10%;
-				margin-left: 45%;
-			}
+            #buttCont {
+                height: 400px;
+                width: 100%;
+                padding-top: 10%;
+                margin-left: 45%;
+            }
+			
 			.fbutt{
 				height: 60px;
 				width: 100px;
@@ -60,6 +61,15 @@
 				font-size: 20px;
 			}
 		</style>
+        <script>
+            function goToLogin() {
+                    location.href = 'pages/general/login.php';
+            }
+
+            function goToSignUp() {
+                location.href = "pages/general/signup.php";
+            }
+        </script>
 	</head>
 	<body>
 		
@@ -71,46 +81,42 @@
 			<div id="centerTxt"> eLIBRARY </div>
 		</div>
 			
-		<div id="buttCont">
-			<button type="button"  data-toggle="modal" data-target="#modalSignUp">SIGN UP</button>
-			<button type="button"  data-toggle="modal" data-target="#modalLogin">LOGIN</button>
+        <div id="buttCont">
+            <!--<button type="button" class="fbutt" data-toggle="modal" data-target="#modalSignUp">SIGN UP</button>
+    <button type="button" class="fbutt" data-toggle="modal" data-target="#modalLogin">LOGIN</button>
 
 
-			<!-- Modal -->
-			<div class="modal fade" id="modalLogin" role="dialog">
+    <div class="modal fade" id="modalLogin" role="dialog">
 
-				<form method="post">
-					<h4>Login</h4>
-					<input type=text name="username" placeholder="Username" required/>
-					<input type=text name="password" placeholder="Password" required/>
-					<input type="submit" name="iLogin" value="LOGIN"/>
-					<button type="button">CANCEL</button>
-				</form>
+        <form method="post">
+            <h4>Login</h4>
+            <input type=text name="username" placeholder="Username" required/>
+            <input type=text name="password" placeholder="Password" required/>
+            <input type="submit" name="iLogin" value="LOGIN"/>
+            <button type="button">CANCEL</button>
+        </form>
 
-			</div>
+    </div>
 
-			<div class="modal fade" id="modalSignUp" role="dialog">
+    <div class="modal fade" id="modalSignUp" role="dialog">
 
-				<form method="post">
-					<h4>Login</h4>
-					<input type=text name="username" placeholder="Username" required/>
-					<input type=text name="password" placeholder="Password" required/>
-					<input type=text name="ConfirmPassword" placeholder="Confirm Password" required/>
-					<input type=text name="nama" placeholder="Nama" required/>
-					<input type=text name="phone" placeholder="Phone" required/>
-					<input type=text name="alamat" placeholder="Alamat" required/>
-					<input type="submit" name="iRegister" value="REGISTER"/>
-					<button type="button">CANCEL</button>
-				</form>
-				
-
-			</div>
+        <form method="post">
+            <h4>Login</h4>
+            <input type=text name="username" placeholder="Username" required/>
+            <input type=text name="password" placeholder="Password" required/>
+            <input type=text name="ConfirmPassword" placeholder="Confirm Password" required/>
+            <input type=text name="nama" placeholder="Nama" required/>
+            <input type=text name="phone" placeholder="Phone" required/>
+            <input type=text name="alamat" placeholder="Alamat" required/>
+            <input type="submit" name="iRegister" value="REGISTER"/>
+            <button type="button">CANCEL</button>
+        </form>
 
 
-			<!-- <form id="butt" method="post">
-				<input type="submit" class="fbutt" name="flog" value="LOGIN"/>
-				<input type="submit" class="fbutt" name="fsign" value="SIGN UP"/>
-			</form> -->
-		</div>
+    </div>
+    -->
+         <button class="fbutt" id="flog" onclick="goToLogin()" >LOGIN</button>
+         <button class="fbutt" id="fsign" onclick="goToSignUp()">SIGN UP</button> 
+     </div>
 	</body>
 </html>
