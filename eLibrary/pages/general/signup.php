@@ -1,4 +1,58 @@
-<?php  ?>
+<?php  
+    include("../../connection/connectionUsers.php");
+    $error_message="";
+    $status="";
+
+    if(isset($_POST['regButt'])){
+        $usename=$_POST['username'];
+        $password=md5($_POST['password']);
+        $passwordConf=md5($_POST['passwordConf']);
+        $name=$_POST['name'];
+        $phoneNum=$_POST['phoneNum'];
+        $address=$_POST['address'];
+
+        if(isset($usename) && $usename!=""){
+            $sql="SELECT username FROM anggota WHERE username='$usename'";
+            $res=$mysqli->query($sql);
+
+            if($res->num_rows > 0){
+                $error_message="Sorry username already taken";
+                $status=false;
+                //echo $error_message;
+                //$error_message="";
+            }else{
+                if(isset($password) && isset($passwordConf) && $password!="" && $passwordConf!=""){
+                    if($password!=$passwordConf){
+                        $error_message="Password not same";
+                    }else{
+                        if(isset($name) && isset($phoneNum) && isset($address)
+                        && $name!="" && $phoneNum!="" && $address!=""){
+                            $sql="INSERT INTO anggota (username,Password,Nama,Alamat,Phone,IsAdmin) VALUES
+                            ('$usename','$password','$name','$address','$phoneNum','0')";
+                            $mysqli->query($sql);
+                            $status=true;
+                            
+                            // // Modal
+                            // echo "<div id='myModal' class='modal fade' role='dialog'>";
+                            //     echo "div class='modal-dialog'";
+                            //         echo "";
+                                   
+                            //     echo "</div>";
+                            // echo "</div>";
+                        }
+                        
+                    }
+                }
+            }
+        }
+        //echo $error_message;
+
+
+    }else if(isset($_POST['cancelButt'])){
+        header("Location: ../../index.php");
+    }
+
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -65,13 +119,16 @@
                 width: 80px;
                 height: 40px
             }
+            p{
+                margin-left: 100px;
+            }
         </style>
         <script>
             function goToIndex() {
                 location.href = '../../index.php';
             }
 
-        </script>s
+        </script>
 	</head>
 	<body>
 		<!-- CONTENT -->
@@ -82,21 +139,34 @@
         </div>
         <!--Login Form-->
         <div id="formCont">
-            <label id="textLog">Login</label>
-            <form method="get" action="" id="login">
+            <label id="textLog">Create New Account</label>
+            <form method="post" action="" id="login">
                 <input type="text" name="username" class="formIn" id="uname" placeholder="Username" />
                 <br />
+                <?php 
+                    if($status==false){
+                        echo "<p>".$error_message."</p>";
+                    }
+                ?>
                 <input type="password" name="password" class="formIn" id="pass" placeholder="Password" />
+                <br />
                 <br />
                 <input type="password" name="passwordConf" class="formIn" id="passCon" placeholder="Confirm Password" />
                 <br />
+                <?php 
+                    if($status==false){
+                        echo "<p>".$error_message."</p>";
+                    }
+                ?>
                 <input type="text" name="name" class="formIn" id="name" placeholder="Name" />
+                <br />
                 <br />
                 <input type="text" name="phoneNum" class="formIn" id="phone" placeholder="Phone" />
                 <br />
+                <br />
                 <input type="text" name="address" class="formIn" id="address" placeholder="Address" />
                 <br />
-                <input type="submit" name="regButt" class="formButt" value="REGISTER" />
+                <input type="submit" name="regButt" class="formButt" value="REGISTER" data-toggle="modal" target="#myModal"/>
                 <input type="submit" name="cancelButt" class="formButt" id="cancel" value="CANCEL" />
 
             </form>
