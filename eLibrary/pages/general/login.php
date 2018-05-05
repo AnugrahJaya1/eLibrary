@@ -1,4 +1,51 @@
-<?php  ?>
+<?php  
+    include("../../connection/connection.php");
+    session_start();
+    $error_message="";
+    $status=false;
+
+    if(isset($_POST['logButt'])){
+        $username=$_POST['username'];
+        $password=md5($_POST['password']);
+        if(empty($username) && empty($password)){
+            $error_message="Please enter your username and password";
+        }else if(isset($username) && isset($password) && $password!="" && $username!=""){
+            $sql="SELECT username,Nama,IsAdmin FROM anggota WHERE username='$username'";
+            $res=$mysqli->query($sql);
+
+            if($res->num_rows == 0 ){
+                $error_message="Username doesn't exist";
+                $status=false;
+            }else{
+                $sql.=" AND Password='$password'";
+                $res=$mysqli->query($sql);
+
+                if($res->num_rows == 0 ){
+                    $error_message="WRONG PASSWORD";
+                    $status=false;
+                }else{
+                    $status=true;
+                    $row=$res->fetch_array();
+                    $_SESSION["username"]=$row['username'];
+                    $_SESSION["nama"]=$row['Nama'];
+                    $isAdmin=$row['IsAdmin'];
+                    if($isAdmin==1){
+                        header("Location: ../admin/adm.php");
+                    }else{
+                        header("Location: ../user/usr.php");
+                    }
+                }
+            }
+
+
+        }
+    }
+    // else if(isset($_POST['cancelButt'])){
+    //     header("Location: ../../index.php");
+    // }
+
+
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -63,6 +110,9 @@
                 width: 70px;
                 height:40px
             }
+            p{
+                margin-left: 9em;
+            }
         </style>
         <script>
             function goToIndex() {
@@ -81,15 +131,23 @@
         <!--Login Form-->
         <div id="formCont">
             <label id="textLog">Login</label>
-            <form method="get" action="" id="login">
-                <input type="text" name="username" class="formIn" id="uname" placeholder="Username" />
+            <form method="post" action="" id="login">
+                <input type="text" name="username" class="formIn" id="uname" placeholder="Username"/>
                 <br />
-                <input type="password" name="password" class="formIn" id="pass" placeholder="Password" />
+                <input type="password" name="password" class="formIn" id="pass" placeholder="Password"/>
                 <br />
                 <input type="submit" name="logButt" class="formButt" value="LOGIN" />
-                <input type="submit" name="cancelButt" class="formButt" id="cancel" value="CANCEL"  />
+                <!-- <input type="submit" name="cancelButt" class="formButt" id="cancel" value="CANCEL"  /> -->
+                <a class="formButt" href="../../index.php">CANCEL</a>
 
             </form>
+
+            <?php 
+                if($status==false && $error_message!=""){
+                    echo "<p>".$error_message."</p>";
+                }
+            ?>
+
         </div>
 	</body>
 </html>

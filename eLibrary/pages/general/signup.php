@@ -37,9 +37,10 @@
             }
         }
         // echo $status;
-    }else if(isset($_POST['cancelButt'])){
-        header("Location: ../../index.php");
     }
+    // else if(isset($_POST['cancelButt'])){
+    //     header("Location: ../../index.php");
+    // }
 ?>
 <!DOCTYPE html>
 <html>
@@ -108,7 +109,7 @@
                 height: 40px
             }
             p{
-                margin-left: 100px;
+                margin-left: 9em;
             }
         </style>
         <script>
@@ -136,20 +137,21 @@
             ?>
 
             <form method="post" action="signup.php" id="login">
-                <input type="text" name="username" class="formIn" id="uname" placeholder="Username" />
+                <input type="text" name="username" class="formIn" id="uname" placeholder="Username" required />
                 <br />
-                <input type="password" name="password" class="formIn" id="pass" placeholder="Password" />
+                <input type="password" name="password" class="formIn" id="pass" placeholder="Password" required/>
                 <br />
-                <input type="password" name="passwordConf" class="formIn" id="passCon" placeholder="Confirm Password" />
+                <input type="password" name="passwordConf" class="formIn" id="passCon" placeholder="Confirm Password"required />
                 <br />
-                <input type="text" name="name" class="formIn" id="name" placeholder="Name" />
+                <input type="text" name="name" class="formIn" id="name" placeholder="Name" required/>
                 <br />
-                <input type="text" name="phoneNum" class="formIn" id="phone" placeholder="Phone" />
+                <input type="text" name="phoneNum" class="formIn" id="phone" placeholder="Phone" required/>
                 <br />
-                <input type="text" name="address" class="formIn" id="address" placeholder="Address" />
+                <input type="text" name="address" class="formIn" id="address" placeholder="Address" required/>
                 <br />
                 <input type="submit" name="regButt" class="formButt" value="REGISTER"/>
-                <input type="submit" name="cancelButt" class="formButt" id="cancel" value="CANCEL" />
+                <!-- <input type="submit" name="cancelButt" class="formButt" id="cancel" value="CANCEL" /> -->
+                <a class="formButt" href="../../index.php">CANCEL</a>
                 
             </form>
         </div>
