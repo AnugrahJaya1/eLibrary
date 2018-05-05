@@ -110,8 +110,20 @@
                 width: 70px;
                 height:40px
             }
-            p{
-                margin-left: 9em;
+            #cancelButt {
+                padding: 10px 6px 10px 6px;
+                text-decoration: none;
+                border-top: 2px outset;
+                border-right: 2px outset;
+                border-bottom: 2px outset;
+                border-left: 2px outset;
+            }
+            p {
+                padding-left: 8em;
+                margin-right: 20em;
+                margin-left: 20em;
+                background-color: red;
+                color: white;
             }
         </style>
         <script>
@@ -138,16 +150,15 @@
                 <br />
                 <input type="submit" name="logButt" class="formButt" value="LOGIN" />
                 <!-- <input type="submit" name="cancelButt" class="formButt" id="cancel" value="CANCEL"  /> -->
-                <a class="formButt" href="../../index.php">CANCEL</a>
+                <a id="cancelButt" class="formButt" href="../../index.php">CANCEL</a>
 
             </form>
-
-            <?php 
-                if($status==false && $error_message!=""){
-                    echo "<p>".$error_message."</p>";
-                }
-            ?>
-
         </div>
+        <!--ERROR MESSAGE-->
+        <?php
+        if($status==false && $error_message!=""){
+            echo "<p>".$error_message."</p>";
+        }
+        ?>
 	</body>
 </html>

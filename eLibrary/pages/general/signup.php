@@ -31,7 +31,7 @@
                             ('$username','$password','$name','$address','$phoneNum',0)";
                             $mysqli->query($sql);
                             $status=true;
-                            $display="inline";
+                            $display="block";
                         }
                     }
                 }
@@ -111,22 +111,110 @@
                 margin-left: 10px;
                 color: white;
                 background-color: black;
-                width: 80px;
+                width: 90px;
                 height: 40px
             }
-            p{
-                margin-left: 9em;
-            }
-            .modal{
-                display: <?=$display?>;
-            }
-        </style>
-        <script>
-            function goToIndex() {
-                location.href = '../../index.php';
+
+            #cancelButt {
+                padding: 11px 6px 11px 6px;
+                text-decoration: none;
+                border-top: 2px outset;
+                border-right: 2px outset;
+                border-bottom: 2px outset;
+                border-left: 2px outset;
             }
 
-        </script>
+             #cancelButt:hover {
+                color: white;
+             }
+
+            p{
+                font-size:18px;
+                margin-left: 7em;
+                background-color: red;
+                color:white;
+            }
+            /*CSS Modal*/
+            .modal {
+                display: none;/*<?=$display?>;*/
+                position: fixed; /* Stay in place */
+                z-index: 1; /* Sit on top */
+                left: 0;
+                top: 0;
+                width: 100%; /* Full width */
+                height: 100%; /* Full height */
+                overflow: auto; /* Enable scroll if needed */
+                background-color: grey; /* Fallback color */
+                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            }
+            /* Modal Body */
+            .modal-body {
+                padding: 2px 16px;
+                height: 70%;
+            }
+
+            /* Modal Footer */
+            .modal-footer {
+                height:20%;
+                padding: 2px 16px;
+                background-color: grey;
+                color: white;
+                text-align:left;
+            }
+
+            /* Modal Content */
+            .modal-content {
+                position: relative;
+                background-color: grey;
+                margin: auto;
+                border: 1px solid #888;
+                height:60%;
+                width: 80%;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+                animation-name: animatetop;
+                animation-duration: 0.4s
+            }
+            .modal-dialog {
+                width: 600px;
+                height: 40%;
+                margin: 30px auto;
+            }
+            #modButt1 {
+                padding: 11px 6px 11px 6px;
+                text-decoration: none;
+                border-top: 2px outset;
+                border-right: 2px outset;
+                border-bottom: 2px outset;
+                border-left: 2px outset;
+            }
+            #modButt2 {
+                padding: 11px 6px 11px 6px;
+                text-decoration: none;
+                border-top: 2px outset;
+                border-right: 2px outset;
+                border-bottom: 2px outset;
+                border-left: 2px outset;
+            }
+            #modButt1:hover {
+                color: white;
+            }
+            #modButt2:hover {
+                color: white;
+            }
+            /* Add Animation */
+            @keyframes animatetop {
+                from {
+                    top: -300px;
+                    opacity: 0
+                }
+
+                to {
+                    top: 0;
+                    opacity: 1
+                }
+            }
+        </style>
+
 	</head>
 	<body>
 		<!-- CONTENT -->
@@ -158,29 +246,30 @@
                 <br />
                 <input type="text" name="address" class="formIn" id="address" placeholder="Address" required/>
                 <br />
-                <input type="submit" name="regButt" class="formButt" value="REGISTER"/>
+                <input type="submit" name="regButt" class="formButt" value="REGISTER" />
                 <!-- <input type="submit" name="cancelButt" class="formButt" id="cancel" value="CANCEL" /> -->
-                <a class="formButt" href="../../index.php">CANCEL</a>
+                <a id="cancelButt" class="formButt" href="../../index.php">CANCEL</a>
             </form>
         </div>
 
 
-        
-        <div class="modal" id="myModal">
+        <!--Modal-->
+        <div class="modal" id="myModal" style="display:<?php echo $display;?>">
             <div class="modal-dialog">
                 <div class="modal-content">
 
                 <!-- Modal body -->
-                    <div class="modal-body">
-                        You have registeres as <?php echo  $name?>
+                    <div  class="modal-body">
+                        You have registered as <?php echo  $name?>
                         <br>
+                        <br />
                         Please login to continue.
                     </div>
 
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <a class="formButt" href="../general/login.php">LOGIN</a>
-                        <a class="formButt" href="../../index.php">CANCEL</a>
+                        <a class="formButt" id="modButt1" href="../general/login.php" style="float:left;height: 30px;">LOGIN</a>
+                        <a class="formButt" id="modButt2" href="../../index.php" style="float:left;height: 30px;">CANCEL</a>
                     </div>
 
                 </div>
