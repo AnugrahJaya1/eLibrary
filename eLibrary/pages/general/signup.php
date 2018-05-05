@@ -31,11 +31,7 @@
                             ('$username','$password','$name','$address','$phoneNum',0)";
                             $mysqli->query($sql);
                             $status=true;
-                            echo "<script type='text/javascript'>
-$(document).ready(function(){
-$('#myModal').modal('show');
-});
-</script>";
+                            $display="inline";
                         }
                     }
                 }
@@ -121,9 +117,9 @@ $('#myModal').modal('show');
             p{
                 margin-left: 9em;
             }
-            /* .modal{
-                visibility: hidden;
-            } */
+            .modal{
+                display: <?=$display?>;
+            }
         </style>
         <script>
             function goToIndex() {
@@ -165,35 +161,31 @@ $('#myModal').modal('show');
                 <input type="submit" name="regButt" class="formButt" value="REGISTER"/>
                 <!-- <input type="submit" name="cancelButt" class="formButt" id="cancel" value="CANCEL" /> -->
                 <a class="formButt" href="../../index.php">CANCEL</a>
-                <!-- Nanti ini hapus aja -->
-                <input type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" value="TEST"/>
-                
             </form>
         </div>
 
 
-    
+        
         <div class="modal" id="myModal">
             <div class="modal-dialog">
                 <div class="modal-content">
 
                 <!-- Modal body -->
-                <div class="modal-body">
-                    You have registeres as <?php $name?>
-                    <br>
-                    Please login to continue.
-                </div>
+                    <div class="modal-body">
+                        You have registeres as <?php echo  $name?>
+                        <br>
+                        Please login to continue.
+                    </div>
 
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <a class="formButt" href="../general/login.php">LOGIN</a>
-                    <a class="formButt" href="../../index.php">CANCEL</a>
-                </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <a class="formButt" href="../general/login.php">LOGIN</a>
+                        <a class="formButt" href="../../index.php">CANCEL</a>
+                    </div>
 
                 </div>
             </div>
         </div>
-
         
 	</body>
 </html>
