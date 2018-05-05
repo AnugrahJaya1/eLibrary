@@ -31,6 +31,11 @@
                             ('$username','$password','$name','$address','$phoneNum',0)";
                             $mysqli->query($sql);
                             $status=true;
+                            echo "<script type='text/javascript'>
+$(document).ready(function(){
+$('#myModal').modal('show');
+});
+</script>";
                         }
                     }
                 }
@@ -51,6 +56,11 @@
 		<link rel="stylesheet" href="../../lib/w3.css">
 		<link rel="stylesheet" href="../../lib/w3-theme-riverside.css">
 		<link rel="stylesheet" href="../../style/style.css">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
         <style>
             body {
                 background-color: darkgray;
@@ -111,6 +121,9 @@
             p{
                 margin-left: 9em;
             }
+            /* .modal{
+                visibility: hidden;
+            } */
         </style>
         <script>
             function goToIndex() {
@@ -136,7 +149,7 @@
                 }
             ?>
 
-            <form method="post" action="signup.php" id="login">
+            <form method="post" action="signup.php" id="login" name="signup">
                 <input type="text" name="username" class="formIn" id="uname" placeholder="Username" required />
                 <br />
                 <input type="password" name="password" class="formIn" id="pass" placeholder="Password" required/>
@@ -145,15 +158,42 @@
                 <br />
                 <input type="text" name="name" class="formIn" id="name" placeholder="Name" required/>
                 <br />
-                <input type="text" name="phoneNum" class="formIn" id="phone" placeholder="Phone" required/>
+                <input type="text" name="phoneNum" pattern="^[ ]*[+]?[0-9]{4,}[ ]*$" class="formIn" id="phone" placeholder="Phone" required/>
                 <br />
                 <input type="text" name="address" class="formIn" id="address" placeholder="Address" required/>
                 <br />
                 <input type="submit" name="regButt" class="formButt" value="REGISTER"/>
                 <!-- <input type="submit" name="cancelButt" class="formButt" id="cancel" value="CANCEL" /> -->
                 <a class="formButt" href="../../index.php">CANCEL</a>
+                <!-- Nanti ini hapus aja -->
+                <input type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" value="TEST"/>
                 
             </form>
         </div>
+
+
+    
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    You have registeres as <?php $name?>
+                    <br>
+                    Please login to continue.
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <a class="formButt" href="../general/login.php">LOGIN</a>
+                    <a class="formButt" href="../../index.php">CANCEL</a>
+                </div>
+
+                </div>
+            </div>
+        </div>
+
+        
 	</body>
 </html>
