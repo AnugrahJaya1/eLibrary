@@ -85,6 +85,26 @@
             li:hover{
                 opacity:0.5;
             }
+			#navMenu{
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				width: 25%;
+				background-color: #f1f1f1;
+				position: fixed;
+				height: 100%;
+				overflow: auto;
+			}
+			/* .menu,a{
+				display: block;
+				color: #000;
+				padding: 8px 16px;
+				text-decoration: none;
+			} */
+			/* a{
+				text-decoration: none;
+				display: block;
+			} */
         </style>
 	</head>
 	<body>
@@ -108,6 +128,15 @@
                 <li id="currPage"><a href="usr.php"><i class="fa fa-home"></i></a></li>
             </ul>
         </div>
+
+		<div class="navBarMenu">
+			<h3>HOME</h3>
+			<ul id="navMenu" >
+				<li class="menu"><a href="book.php">Book List</a></li>
+				<li class="menu"><a href="borrow.php">Borrow History</a></li>
+				<li class="menu"><a href="">Download Journals</a></li>
+			</ul>
+		</div>
 
 	</body>
 </html>
