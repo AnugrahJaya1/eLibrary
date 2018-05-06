@@ -3,7 +3,6 @@
     session_start();
     $error_message="";
     $status=false;
-
     if(isset($_POST['logButt'])){
         $username=$_POST['username'];
         $password=md5($_POST['password']);
@@ -12,14 +11,12 @@
         }else if(isset($username) && isset($password) && $password!="" && $username!=""){
             $sql="SELECT username,Nama,IsAdmin FROM anggota WHERE username='$username'";
             $res=$mysqli->query($sql);
-
             if($res->num_rows == 0 ){
                 $error_message="Username doesn't exist";
                 $status=false;
             }else{
                 $sql.=" AND Password='$password'";
                 $res=$mysqli->query($sql);
-
                 if($res->num_rows == 0 ){
                     $error_message="WRONG PASSWORD";
                     $status=false;
@@ -36,15 +33,11 @@
                     }
                 }
             }
-
-
         }
     }
     // else if(isset($_POST['cancelButt'])){
     //     header("Location: ../../index.php");
     // }
-
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -82,7 +75,6 @@
                 font-size: 40px;
                 font-style:normal;
                 font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-
             }
             #formCont {
                 margin-top: 20px;
@@ -119,9 +111,9 @@
                 border-left: 2px outset;
             }
             p {
-                padding-left: 8em;
-                margin-right: 20em;
-                margin-left: 20em;
+                padding-left: 11em;
+                margin-right: 30em;
+                margin-left: 30em;
                 background-color: red;
                 color: white;
             }
@@ -130,7 +122,6 @@
             function goToIndex() {
                 location.href = '../../index.php';
             }
-
         </script>
 	</head>
 	<body>
