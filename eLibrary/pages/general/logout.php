@@ -8,8 +8,14 @@
 		<link rel="stylesheet" href="../../lib/w3.css">
 		<link rel="stylesheet" href="../../lib/w3-theme-riverside.css">
 		<link rel="stylesheet" href="../../style/style.css">
+		<style>
+			#logout{
+                background-color: #c1ccdd;
+            }
+		</style>
 	</head>
 	<body>
 		<!-- CONTENT -->
+		<?php include("../temp/headerUser.php"); ?>
 	</body>
 </html>

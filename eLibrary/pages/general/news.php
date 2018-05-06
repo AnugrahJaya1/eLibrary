@@ -12,9 +12,15 @@
 		<link rel="stylesheet" href="../../style/style.css">
 		<link rel="stylesheet" href="../../lib/font-awesome.min.css">
 		<link rel="stylesheet" href="../../lib/font-awesome.css">
+		<style>
+			#news{
+                background-color: #c1ccdd;
+            }
+		</style>
 	</head>
 	<body>
 		<!-- CONTENT -->
+		<?php include("../temp/headerUser.php"); ?>
 		<h2>Trump election: Priebus and Bannon given key roles</h2>
 		<p>
 			US President-elect Donald Trump has awarded key roles in his incoming team to a top Republican party official and a right-wing media chief.

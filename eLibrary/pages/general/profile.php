@@ -12,7 +12,13 @@
 		<link rel="stylesheet" href="../../style/style.css">
 		<link rel="stylesheet" href="../../lib/font-awesome.min.css">
 		<link rel="stylesheet" href="../../lib/font-awesome.css">
+		<style>
+			#profile{
+                background-color: #c1ccdd;
+            }
+		</style>
 	</head>
 	<!-- CONTENT -->
+	<?php include("../temp/headerUser.php"); ?>
 	</body>
 </html>
