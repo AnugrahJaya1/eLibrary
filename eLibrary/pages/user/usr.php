@@ -1,5 +1,6 @@
 <?php
-
+	session_start();
+	$nama=$_SESSION["nama"];
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,11 +24,9 @@
                 width: 100%;
                 box-shadow: 5px 5px 5px black;
             }
-
             img {
                 width: 100%;
             }
-
             #centerTxt {
                 position: absolute;
                 top: 9%;
@@ -49,7 +48,6 @@
             li{
                 float:right;
                 height:100%;
-
             }
             .fa-envelope {
                 padding-left: 10px;
@@ -102,11 +100,12 @@
             <!--"You are logged in as'...'" text here-->
             <!--icons-->
             <ul id="navIcon">
-                <li> <i class="fa fa-sign-out"></i></li>
-                <li><i class="fa fa-user"></i></li>
-                <li><i class="fa fa-envelope"></i></li>
-                <li><i class="fa fa-newspaper-o"></i></li>
-                <li id="currPage"><i class="fa fa-home"></i></li>
+				You are logged is as <?php echo $nama?>
+                <li> <a href="../general/logout.php"><i class="fa fa-sign-out"></i></a></li>
+                <li> <a href="../general/profile.php"><i class="fa fa-user"></i></a></li>
+                <li> <a href=""><i class="fa fa-envelope"></i></a></li>
+                <li> <a href="../general/news.php"><i class="fa fa-newspaper-o"></i></a></li>
+                <li id="currPage"><a href="usr.php"><i class="fa fa-home"></i></a></li>
             </ul>
         </div>
 
