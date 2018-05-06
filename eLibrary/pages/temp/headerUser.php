@@ -1,7 +1,3 @@
-<?php
-	session_start();
-	$nama=$_SESSION["nama"];
-?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -15,11 +11,11 @@
 		<link rel="stylesheet" href="../../lib/font-awesome.css">
 
         <style>
-            body {
+            /* body {
                 background-color: darkgray;
-            }
+            } */
             /*CSS banner*/
-            /* #bannerCont {
+            #bannerCont {
                 margin-top: 10px;
                 width: 100%;
                 box-shadow: 5px 5px 5px black;
@@ -34,9 +30,9 @@
                 transform: translate(-50%, -50%);
                 color: white;
                 font-size: 100px;
-            } */
+            }
             /*navBar CSS*/
-            /* #navBar{
+            #navBar{
                 background-color : antiquewhite;
                 width : 100%;
                 height : 30px;
@@ -84,41 +80,32 @@
             }
             li:hover{
                 opacity:0.5;
-            } */
-			#navMenu{
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-				width: 25%;
-				background-color: #f1f1f1;
-				position: fixed;
-				height: 100%;
-				overflow: auto;
-			}
-			/* .menu,a{
-				display: block;
-				color: #000;
-				padding: 8px 16px;
-				text-decoration: none;
-			} */
-			/* a{
-				text-decoration: none;
-				display: block;
-			} */
+            }
         </style>
 	</head>
 	<body>
 		<!-- CONTENT -->
-        <?php include("../temp/headerUser.php"); ?>
+        <!--Banner-->
+        <div id="bannerCont">
+            <img src="../../img/banner2.jpg" />
+            <div id="centerTxt"> eLIBRARY </div>
+        </div>
 
-		<div class="navBarMenu">
-			<h3>HOME</h3>
-			<ul id="navMenu" >
-				<li class="menu"><a href="book.php">Book List</a></li>
-				<li class="menu"><a href="borrow.php">Borrow History</a></li>
-				<li class="menu"><a href="">Download Journals</a></li>
-			</ul>
-		</div>
+        <!--Navigation Bar-->
+        <div id="navBar">
+            <!--"You are logged in as'...'" text here-->
+            <!--icons-->
+            <ul id="navIcon">
+				You are logged is as <?php echo $nama?>
+                <li> <a href="../general/logout.php"><i class="fa fa-sign-out"></i></a></li>
+                <li> <a href="../general/profile.php"><i class="fa fa-user"></i></a></li>
+                <li> <a href=""><i class="fa fa-envelope"></i></a></li>
+                <li> <a href="../general/news.php"><i class="fa fa-newspaper-o"></i></a></li>
+                <li id="currPage"><a href="usr.php"><i class="fa fa-home"></i></a></li>
+            </ul>
+        </div>
+
+		
 
 	</body>
 </html>
