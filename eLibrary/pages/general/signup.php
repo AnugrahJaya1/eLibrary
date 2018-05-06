@@ -2,7 +2,6 @@
     include("../../connection/connection.php");
     $error_message="";
     $status=false;
-
     if(isset($_POST['regButt'])){
         $username=$_POST['username'];
         $password=md5($_POST['password']);
@@ -10,11 +9,9 @@
         $name=$_POST['name'];
         $address=$_POST['address'];
         $phoneNum=$_POST['phoneNum'];
-
         if(isset($username) && $username!=""){
             $sql="SELECT username FROM anggota WHERE username='$username'";
             $res=$mysqli->query($sql);
-
             if($res->num_rows > 0){
                 $error_message="Sorry username already taken";
                 $status=false;
@@ -67,11 +64,9 @@
                 width: 100%;
                 box-shadow: 5px 5px 5px black;
             }
-
             img {
                 width: 100%;
             }
-
             #centerTxt {
                 position: absolute;
                 top: 9%;
@@ -87,7 +82,6 @@
                 font-style: normal;
                 font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             }
-
             #formCont {
                 margin-top: 20px;
                 margin-left: 36%;
@@ -96,7 +90,6 @@
                 background-color: lightgray;
                 box-shadow: 2px 2px 5px black;
             }
-
             .formIn {
                 margin-top: 18px;
                 margin-left: 10px;
@@ -104,7 +97,6 @@
                 height: 40px;
                 width: 90%;
             }
-
             .formButt {
                 margin-top: 10px;
                 margin-bottom: 30px;
@@ -114,7 +106,6 @@
                 width: 90px;
                 height: 40px
             }
-
             #cancelButt {
                 padding: 11px 6px 11px 6px;
                 text-decoration: none;
@@ -123,14 +114,13 @@
                 border-bottom: 2px outset;
                 border-left: 2px outset;
             }
-
              #cancelButt:hover {
                 color: white;
              }
-
             p{
                 font-size:18px;
-                margin-left: 7em;
+                /* margin-left: 2em; */
+                text-align: center;
                 background-color: red;
                 color:white;
             }
@@ -152,7 +142,6 @@
                 padding: 2px 16px;
                 height: 70%;
             }
-
             /* Modal Footer */
             .modal-footer {
                 height:20%;
@@ -161,7 +150,6 @@
                 color: white;
                 text-align:left;
             }
-
             /* Modal Content */
             .modal-content {
                 position: relative;
@@ -207,7 +195,6 @@
                     top: -300px;
                     opacity: 0
                 }
-
                 to {
                     top: 0;
                     opacity: 1

@@ -111,9 +111,10 @@
                 border-left: 2px outset;
             }
             p {
-                padding-left: 11em;
+                /* padding-left: 11em;
                 margin-right: 30em;
-                margin-left: 30em;
+                margin-left: 30em; */
+                text-align: center;
                 background-color: red;
                 color: white;
             }
@@ -144,12 +145,14 @@
                 <a id="cancelButt" class="formButt" href="../../index.php">CANCEL</a>
 
             </form>
+
+            <!--ERROR MESSAGE-->
+            <?php
+            if($status==false && $error_message!=""){
+                echo "<p>".$error_message."</p>";
+            }
+            ?>
         </div>
-        <!--ERROR MESSAGE-->
-        <?php
-        if($status==false && $error_message!=""){
-            echo "<p>".$error_message."</p>";
-        }
-        ?>
+        
 	</body>
 </html>
