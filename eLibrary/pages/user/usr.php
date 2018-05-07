@@ -14,78 +14,70 @@
             body {
                 background-color: darkgray;
             }
-            /*CSS banner*/
-            /* #bannerCont {
-                margin-top: 10px;
-                width: 100%;
-                box-shadow: 5px 5px 5px black;
-            }
-            img {
-                width: 100%;
-            }
-            #centerTxt {
-                position: absolute;
-                top: 9%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                color: white;
-                font-size: 100px;
-            } */
-            /*navBar CSS*/
-            /* #navBar{
-                background-color : antiquewhite;
-                width : 100%;
-                height : 30px;
-            }
-            ul{
-                list-style-type : none;
-                height : 100%;
-            }
-            li{
-                float:right;
+            /*Content CSS*/
+            #midItem{
                 height:100%;
+                width:100%;
+                display: flex;
             }
-            .fa-envelope {
-                padding-left: 10px;
-                padding-top: 5px;
-                font-size: 20px;
-                padding-right: 10px;
+            #content{
+                width:100%;
+                height:100%;
+                margin-left: 6px;
             }
-            .fa-home {
-                padding-left: 10px;
-                padding-top: 5px;
-                font-size: 20px;
-                padding-right: 10px;
+
+            h1 {
+                background-color: dimgrey;
+                color: white;
+                padding-left: 5px;
+                margin-bottom:0px;
             }
-            .fa-newspaper-o {
-                padding-left: 10px;
-                padding-top: 5px;
-                font-size: 20px;
-                padding-right: 10px;
+            #parag{
+                height:100%;
+                background-color:lightgrey;
             }
-            .fa-sign-out {
-                padding-left: 10px;
-                padding-top: 5px;
-                font-size: 20px;
-                padding-right: 10px;
+            h2{
+                padding-left : 6px;
             }
-            .fa-user {
-                padding-left: 10px;
-                padding-top: 5px;
-                font-size: 20px;
-                padding-right: 10px;
-            } */
+            p{
+                padding-left: 6px;
+            }
+            /*NavBar CSS*/
             #user{
                 background-color: #c1ccdd;
             }
-            /* li:hover{
-                opacity:0.5;
-            } */
-			
+            #user:hover{
+                opacity:1;
+            }
+            /*top nav*/
         </style>
 	</head>
 	<body>
 		<!-- CONTENT -->
-        <?php include("../temp/headerUser.php"); ?>
+        <!--TOP ITEM-->
+        <div id="topItem">
+            <!--TOP NAV AND BANNER-->
+            <?php include("../temp/headerUser.php"); ?>
+
+            
+        </div>
+       <!--MIDDLE ITEM-->
+        <div id="midItem">
+            <!--SIDE NAV BAR-->
+            <?php include("../temp/sideNavUser.php"); ?>
+            <!--Main Content-->
+            <div id="content">
+                <h1>Weclome to eLibrary! </h1>
+
+                <div id="parag">
+                    <h2>About Us</h2>
+                    <p>
+                        eLibrary is a simple Library web where you can download journals for free and search
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--FOOTER-->
+        <?php include("../temp/footer.php");?>
 	</body>
 </html>
