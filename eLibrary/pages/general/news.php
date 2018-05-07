@@ -13,37 +13,89 @@
 		<link rel="stylesheet" href="../../lib/font-awesome.min.css">
 		<link rel="stylesheet" href="../../lib/font-awesome.css">
 		<style>
+            html {
+                position: relative;
+                min-height: 100%;
+            }
 			#news{
                 background-color: #c1ccdd;
             }
+            #news:hover{
+                opacity:1;
+            }
+            /*News CSS*/
+            #midItem {
+                height: 100%;
+                width: 100%;
+                display: flex;
+            }
+            h1 {
+                background-color: dimgrey;
+                color: white;
+                padding-left: 5px;
+                margin-bottom: 0px;
+            }
+
+            #newsContent{
+                background-color:lightgray;
+                margin-left: 6px;
+                margin-bottom: 6px;
+                width:100%;
+                height:80%;
+            }
+            #newsList{
+                list-style-type:circle;
+            }
+            .listItem{
+                float:none;
+            }
+            .listItem:hover{
+                opacity:1;
+            }
 		</style>
+        <title>News Page</title>
 	</head>
-	<body>
-		<!-- CONTENT -->
-		<?php include("../temp/headerUser.php"); ?>
-		<h2>Trump election: Priebus and Bannon given key roles</h2>
-		<p>
-			US President-elect Donald Trump has awarded key roles in his incoming team to a top Republican party official and a right-wing media chief.
-			Reince Priebus, chairman of the Republican National Committee (RNC), will be his chief of staff.
-			In this role, he will set the tone for the new White House and act as a conduit to Congress and the government.
-			Stephen Bannon, from the Breitbart News Network, will serve as Mr Trump's chief strategist.
-			Mr Bannon stepped aside as executive chairman of Breitbart - a combative conservative site with an
-			anti-establishment agenda - to act as Mr Trump's campaign chief.
-			Meanwhile, in the president-elect's first interview, with US broadcaster CBS, Mr Trump said:
-			<ul>
-				<li>He would deport or jail up to three million illegal migrants with criminal links</li>
-				<li>Future Supreme Court nominees would be "pro-life" - meaning they oppose abortion - and defend the 
-				constitutional right to bear arms</li>
-				<li>He will not seek to overturn the legalisation of same-sex marriage</li>
-				<li>He will forgo the president's $400,000 salary, taking $1 a year instead</li>
-				</ul>
-		</p>
-		<p>
-			In a statement released by his campaign, Mr Trump described Mr Priebus and Mr Bannon as "highly qualified 
-			leaders who worked well together on our campaign and led us to a historic victory".
-			Mr Priebus, 44, acted as a bridge between Mr Trump and the Republican party establishment during the campaign. 
-			He is close to House Speaker Paul Ryan, a fellow Wisconsinite who could be instrumental in steering the new 
-			administration's legislative agenda.
-		</p>
-	</body>
+    <body>
+        <!-- CONTENT -->
+        <!--TOP NAVBAR--><?php include("../temp/headerUser.php"); ?>
+
+        <div id="midItem">
+            <!--SIDE NAVBAR--><?php include("../temp/sideNavUser.php");?>
+            <!---->
+           
+            <div id="newsContent">
+                <h1>
+                    Today's News
+                </h1>
+                <h2>Trump election: Priebus and Bannon given key roles</h2>
+                <p>
+                    US President-elect Donald Trump has awarded key roles in his incoming team to a top Republican party official and a right-wing media chief.
+                    Reince Priebus, chairman of the Republican National Committee (RNC), will be his chief of staff.
+                    In this role, he will set the tone for the new White House and act as a conduit to Congress and the government.
+                    Stephen Bannon, from the Breitbart News Network, will serve as Mr Trump's chief strategist.
+                    Mr Bannon stepped aside as executive chairman of Breitbart - a combative conservative site with an
+                    anti-establishment agenda - to act as Mr Trump's campaign chief.
+                    Meanwhile, in the president-elect's first interview, with US broadcaster CBS, Mr Trump said:
+                    <ul id="newsList">
+                        <li class="listItem">He would deport or jail up to three million illegal migrants with criminal links</li>
+                        <li class="listItem">
+                            Future Supreme Court nominees would be "pro-life" - meaning they oppose abortion - and defend the
+                            constitutional right to bear arms
+                        </li>
+                        <li class="listItem">He will not seek to overturn the legalisation of same-sex marriage</li>
+                        <li class="listItem">He will forgo the president's $400,000 salary, taking $1 a year instead</li>
+                    </ul>
+                </p>
+                <p>
+                    In a statement released by his campaign, Mr Trump described Mr Priebus and Mr Bannon as "highly qualified
+                    leaders who worked well together on our campaign and led us to a historic victory".
+                    Mr Priebus, 44, acted as a bridge between Mr Trump and the Republican party establishment during the campaign.
+                    He is close to House Speaker Paul Ryan, a fellow Wisconsinite who could be instrumental in steering the new
+                    administration's legislative agenda.
+                </p>
+            </div>
+        </div>
+        <!--FOOTER--><?php include("../temp/footer.php");?>
+
+    </body>
 </html>
