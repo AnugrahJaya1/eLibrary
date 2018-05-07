@@ -1,5 +1,30 @@
 <?php
+    // include("../../connection/connection.php");
+    // $status=false;
+    // $messaga="";
+    
+    // if(isset($_POST['update'])){
+    //     $n="";
+    //     if(!empty($_POST['password'])){
+    //         if(!empty($_POST['conPassword'])){
+    //             $pass=md5($_POST['password']);
+    //             $conPass=md5($_POST['conPassword']);
+    //             if($pass==$conPass){
+    //                 $sql="UPDATE anggota SET Password='$pass' WHERE Nama='$n'";
+    //                 $mysqli->query($sql);
+    //                 $status=true;
+    //                 $messaga="Profile Update";
+    //             }else{
+    //                 $status=false;
+    //                 $messaga="Password Confirmation doesn't match";
+    //             }
+    //         }
+    //     }
+    // }else if(!empty($_POST['phoneNum'])){
 
+    // }else if(!empty($_POST['address'])){
+
+    // }
 ?>
 <!DOCTYPE html>
 <html>
@@ -50,6 +75,74 @@
                 color: white;
                 font-size: 16px;
             }
+            /*CSS Modal*/
+            .modal {
+                display: none;/*<?=$display?>;*/
+                position: fixed; /* Stay in place */
+                z-index: 1; /* Sit on top */
+                left: 0;
+                top: 0;
+                width: 100%; /* Full width */
+                height: 100%; /* Full height */
+                overflow: auto; /* Enable scroll if needed */
+                background-color: grey; /* Fallback color */
+                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            }
+            /* Modal Body */
+            .modal-body {
+                padding: 2px 16px;
+                height: 70%;
+            }
+            /* Modal Footer */
+            .modal-footer {
+                height:20%;
+                padding: 2px 16px;
+                background-color: grey;
+                color: white;
+                text-align:left;
+            }
+            /* Modal Content */
+            .modal-content {
+                position: relative;
+                background-color: grey;
+                margin: auto;
+                border: 1px solid #888;
+                height:60%;
+                width: 80%;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+                animation-name: animatetop;
+                animation-duration: 0.4s
+            }
+            .modal-dialog {
+                width: 600px;
+                height: 40%;
+                margin: 30px auto;
+            }
+            #modButt1 {
+                padding: 11px 6px 11px 6px;
+                text-decoration: none;
+                border-top: 2px outset;
+                border-right: 2px outset;
+                border-bottom: 2px outset;
+                border-left: 2px outset;
+            }
+            #modButt2 {
+                padding: 11px 6px 11px 6px;
+                text-decoration: none;
+                border-top: 2px outset;
+                border-right: 2px outset;
+                border-bottom: 2px outset;
+                border-left: 2px outset;
+            }
+            #modButt1:hover {
+                color: white;
+            }
+            #modButt2:hover {
+                color: white;
+            }
+            .close{
+                margin-left:95%;
+            }
 		</style>
         <title>Profile Page</title>
 	</head>
@@ -65,11 +158,52 @@
                 <div id="profCon">
                     <img src="../../img/profile.jpg" />
                     <div id="buttCon">
-                        <button id="modalButt" >UPDATE USER INFO</button>
+                        <button id="modalButt">UPDATE USER INFO</button>
                     </div>
                 </div>
             </div>
         </div>
+
+        
+        <!-- MODAL -->
+        <div class="modal" id="myModal" style="display:<?php echo $display;?>">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <span class="close">&times;</span>
+                <!-- Modal body -->
+                    <div  class="modal-body">
+                        <h3>Update User Info</h3>
+                        <p>Nama : <?php echo $nama?></p>
+                        <form method="post" action="../../controller/update.php">
+                            <input type="password" name="password" placeholder="Password"/>
+                            <br>
+                            <input type="password" name="conPassword" placeholder="Confirm Password"/>
+                            <br>
+                            <input type="text" name="phoneNum" pattern="^[ ]*[+]?[0-9]{4,}[ ]*$" class="formIn" id="phone" placeholder="Phone"/>
+                            <br>
+                            <input type="text" name="address" placeholder="Address"/>
+                            <br>
+                            <input type="submit" name="update" value="UPDATE"/>
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+        <!-- SCRIPT MODAL HANDLE -->
+        <script>
+            var modal=document.getElementById('myModal');
+            var btn=document.getElementById('modalButt');
+            var close=document.getElementsByClassName("close")[0];
+            btn.onclick=function(){
+                modal.style.display="block";
+            }
+            close.onclick = function() {
+                modal.style.display = "none";
+            }
+        </script>
         <!--FOOTER-->
         <?php include("../temp/footer.php");?>
 	</body>
