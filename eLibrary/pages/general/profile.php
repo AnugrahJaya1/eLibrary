@@ -1,31 +1,3 @@
-<?php
-    // include("../../connection/connection.php");
-    // $status=false;
-    // $messaga="";
-    
-    // if(isset($_POST['update'])){
-    //     $n="";
-    //     if(!empty($_POST['password'])){
-    //         if(!empty($_POST['conPassword'])){
-    //             $pass=md5($_POST['password']);
-    //             $conPass=md5($_POST['conPassword']);
-    //             if($pass==$conPass){
-    //                 $sql="UPDATE anggota SET Password='$pass' WHERE Nama='$n'";
-    //                 $mysqli->query($sql);
-    //                 $status=true;
-    //                 $messaga="Profile Update";
-    //             }else{
-    //                 $status=false;
-    //                 $messaga="Password Confirmation doesn't match";
-    //             }
-    //         }
-    //     }
-    // }else if(!empty($_POST['phoneNum'])){
-
-    // }else if(!empty($_POST['address'])){
-
-    // }
-?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -152,9 +124,16 @@
         <!--MID Content-->
         <div id="midItem">
             <!--SIDE NAVBAR--><?php include("../temp/sideNavUser.php");?>
-            <!---->
+            
             <div id="formCon">
                 <h1>Profile</h1>
+                <!-- MESSAGE -->
+                <?php 
+                    if(isset($_SESSION["message"]) && $_SESSION["message"]!=""){
+                        echo $_SESSION["message"] ;
+                        $_SESSION["message"]="";
+                    }
+                ?>
                 <div id="profCon">
                     <img src="../../img/profile.jpg" />
                     <div id="buttCon">
@@ -169,7 +148,7 @@
         <div class="modal" id="myModal" style="display:<?php echo $display;?>">
             <div class="modal-dialog">
                 <div class="modal-content">
-                <span class="close">&times;</span>
+                <button class="close">&times;</button>
                 <!-- Modal body -->
                     <div  class="modal-body">
                         <h3>Update User Info</h3>
