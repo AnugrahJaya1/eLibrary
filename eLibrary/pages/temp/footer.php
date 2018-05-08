@@ -6,7 +6,7 @@
         height: 30px; /* Height of the footer */
         background-color: dimgray;
         color:white;
-        margin-top: 5px;
+        margin-top: 10px;
         text-align:center;
     }
 </style>

@@ -23,6 +23,15 @@
                 display: flex;
             }
             /*Mid Item CSS*/
+            .notif{
+                background-color:red;
+                color:white;
+                font-size : 18px;
+                width: 40%;
+            }
+            .alert{
+                font-size: 40px;
+            }
             #formCon{
                 margin-left: 6px;
                 width:80%;
@@ -79,38 +88,28 @@
                 background-color: grey;
                 margin: auto;
                 border: 1px solid #888;
-                height:60%;
-                width: 80%;
+                height: 90%;
+                width: 70%;
                 box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
                 animation-name: animatetop;
                 animation-duration: 0.4s
             }
             .modal-dialog {
                 width: 600px;
-                height: 40%;
+                height: 60%;
                 margin: 30px auto;
             }
-            #modButt1 {
-                padding: 11px 6px 11px 6px;
-                text-decoration: none;
-                border-top: 2px outset;
-                border-right: 2px outset;
-                border-bottom: 2px outset;
-                border-left: 2px outset;
-            }
-            #modButt2 {
-                padding: 11px 6px 11px 6px;
-                text-decoration: none;
-                border-top: 2px outset;
-                border-right: 2px outset;
-                border-bottom: 2px outset;
-                border-left: 2px outset;
-            }
-            #modButt1:hover {
+
+            #upBott {
+                height: 30px;
+                width: 100px;
+                background-color: #333;
                 color: white;
+                font-size: 14px;
             }
-            #modButt2:hover {
-                color: white;
+            .modalForm {
+                width: 100%;
+                margin-bottom: 10px;
             }
             .close{
                 margin-left:95%;
@@ -130,7 +129,7 @@
                 <!-- MESSAGE -->
                 <?php 
                     if(isset($_SESSION["message"]) && $_SESSION["message"]!=""){
-                        echo $_SESSION["message"] ;
+                        echo  $_SESSION["message"] ;
                         $_SESSION["message"]="";
                     }
                 ?>
@@ -152,17 +151,17 @@
                 <!-- Modal body -->
                     <div  class="modal-body">
                         <h3>Update User Info</h3>
-                        <p>Nama : <?php echo $nama?></p>
+                        <p style="font-size: 18px;">Nama : <?php echo $nama?></p>
                         <form method="post" action="../../controller/update.php">
-                            <input type="password" name="password" placeholder="Password"/>
+                            <input class="modalForm" type ="password" name="password" placeholder="Password" />
                             <br>
-                            <input type="password" name="conPassword" placeholder="Confirm Password"/>
+                            <input class="modalForm" type="password" name="conPassword" placeholder="Confirm Password"  />
                             <br>
-                            <input type="text" name="phoneNum" pattern="^[ ]*[+]?[0-9]{4,}[ ]*$" class="formIn" id="phone" placeholder="Phone"/>
+                            <input class="modalForm" type="text" name="phoneNum" pattern="^[ ]*[+]?[0-9]{4,}[ ]*$"  id="phone" placeholder="Phone" />
                             <br>
-                            <input type="text" name="address" placeholder="Address"/>
+                            <input class="modalForm" type="text" name="address" placeholder="Address"  />
                             <br>
-                            <input type="submit" name="update" value="UPDATE"/>
+                            <input class="modalForm" type="submit" id="upBott" name="update" value="UPDATE"  />
                         </form>
 
                     </div>
