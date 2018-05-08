@@ -15,53 +15,9 @@
     <link rel="stylesheet" href="../../style/style.css">
     <link rel="stylesheet" href="../../lib/font-awesome.min.css">
     <link rel="stylesheet" href="../../lib/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="../../style/borrow.css" />
     <style>
-        #bookHist {
-            background-color: dimgrey;
-        }
-
-            #bookHist a {
-                color: white;
-            }
-
-        #midItem {
-            height: 100%;
-            width: 100%;
-            display: flex;
-        }
-        /*content css*/
-        #title {
-            height: 20%;
-            width: 79%;
-            display: flex;
-            margin-top: 6px;
-            margin-left: 6px;
-            flex-flow: wrap;
-        }
-
-        h1 {
-            background-color: dimgrey;
-            color: white;
-            width: 100%;
-            padding-left: 6px;
-        }
-
-        /*TABLE CSS*/
-        #tableCont {
-            flex-direction: column;
-            width: 90%;
-            margin-top: 0px;
-            border: outset 2px;
-        }
-
-        th {
-            background-color: dimgray;
-            color: white;
-            font-size: 18px;
-            border: none;
-            padding-left: 4px;
-            padding-right: 10px;
-        }
+       
     </style>
 </head>
 <body>

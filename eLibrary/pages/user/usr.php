@@ -9,46 +9,12 @@
 		<link rel="stylesheet" href="../../style/style.css">
 		<link rel="stylesheet" href="../../lib/font-awesome.min.css">
 		<link rel="stylesheet" href="../../lib/font-awesome.css">
-
+        <link rel="stylesheet" type="text/css" href="../../style/usr.css" />
         <style>
             body {
                 background-color: darkgray;
             }
-            /*Content CSS*/
-            #midItem{
-                height:100%;
-                width:100%;
-                display: flex;
-            }
-            #content{
-                width:100%;
-                height:100%;
-                margin-left: 6px;
-            }
-
-            h1 {
-                background-color: dimgrey;
-                color: white;
-                padding-left: 5px;
-                margin-bottom:0px;
-            }
-            #parag{
-                height:100%;
-                background-color:lightgrey;
-            }
-            h2{
-                padding-left : 6px;
-            }
-            p{
-                padding-left: 6px;
-            }
-            /*NavBar CSS*/
-            #user{
-                background-color: #c1ccdd;
-            }
-            #user:hover{
-                opacity:1;
-            }
+           
             /*top nav*/
         </style>
 	</head>

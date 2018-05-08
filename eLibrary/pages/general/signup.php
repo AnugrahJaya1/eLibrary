@@ -49,6 +49,7 @@
 		<link rel="stylesheet" href="../../lib/w3.css">
 		<link rel="stylesheet" href="../../lib/w3-theme-riverside.css">
 		<link rel="stylesheet" href="../../style/style.css">
+        <link rel="stylesheet" type="text/css" href="../../style/signup.css" />
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -57,148 +58,6 @@
         <style>
             body {
                 background-color: darkgray;
-            }
-            /*CSS banner*/
-            #bannerCont {
-                margin-top: 10px;
-                width: 100%;
-                box-shadow: 5px 5px 5px black;
-            }
-            img {
-                width: 100%;
-            }
-            #centerTxt {
-                position: absolute;
-                top: 9%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                color: white;
-                font-size: 100px;
-            }
-            /*CSS Form*/
-            #textLog {
-                margin-left: 10px;
-                font-size: 40px;
-                font-style: normal;
-                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            }
-            #formCont {
-                margin-top: 20px;
-                margin-left: 36%;
-                height: 100%;
-                width: 30%;
-                background-color: lightgray;
-                box-shadow: 2px 2px 5px black;
-            }
-            .formIn {
-                margin-top: 18px;
-                margin-left: 10px;
-                padding-left: 5px;
-                height: 40px;
-                width: 90%;
-            }
-            .formButt {
-                margin-top: 10px;
-                margin-bottom: 30px;
-                margin-left: 10px;
-                color: white;
-                background-color: black;
-                width: 90px;
-                height: 40px
-            }
-            #cancelButt {
-                padding: 11px 6px 11px 6px;
-                text-decoration: none;
-                border-top: 2px outset;
-                border-right: 2px outset;
-                border-bottom: 2px outset;
-                border-left: 2px outset;
-            }
-             #cancelButt:hover {
-                color: white;
-             }
-            p{
-                font-size:18px;
-                /* margin-left: 2em; */
-                text-align: center;
-                background-color: red;
-                color:white;
-            }
-            /*CSS Modal*/
-            .modal {
-                display: none;/*<?=$display?>;*/
-                position: fixed; /* Stay in place */
-                z-index: 1; /* Sit on top */
-                left: 0;
-                top: 0;
-                width: 100%; /* Full width */
-                height: 100%; /* Full height */
-                overflow: auto; /* Enable scroll if needed */
-                background-color: grey; /* Fallback color */
-                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-            }
-            /* Modal Body */
-            .modal-body {
-                padding: 2px 16px;
-                height: 70%;
-            }
-            /* Modal Footer */
-            .modal-footer {
-                height:20%;
-                padding: 2px 16px;
-                background-color: grey;
-                color: white;
-                text-align:left;
-            }
-            /* Modal Content */
-            .modal-content {
-                position: relative;
-                background-color: grey;
-                margin: auto;
-                border: 1px solid #888;
-                height:60%;
-                width: 80%;
-                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-                animation-name: animatetop;
-                animation-duration: 0.4s
-            }
-            .modal-dialog {
-                width: 600px;
-                height: 40%;
-                margin: 30px auto;
-            }
-            #modButt1 {
-                padding: 11px 6px 11px 6px;
-                text-decoration: none;
-                border-top: 2px outset;
-                border-right: 2px outset;
-                border-bottom: 2px outset;
-                border-left: 2px outset;
-            }
-            #modButt2 {
-                padding: 11px 6px 11px 6px;
-                text-decoration: none;
-                border-top: 2px outset;
-                border-right: 2px outset;
-                border-bottom: 2px outset;
-                border-left: 2px outset;
-            }
-            #modButt1:hover {
-                color: white;
-            }
-            #modButt2:hover {
-                color: white;
-            }
-            /* Add Animation */
-            @keyframes animatetop {
-                from {
-                    top: -300px;
-                    opacity: 0
-                }
-                to {
-                    top: 0;
-                    opacity: 1
-                }
             }
         </style>
 
@@ -247,6 +106,7 @@
 
                 <!-- Modal body -->
                     <div  class="modal-body">
+                        <br />
                         You have registered as <?php echo  $name?>
                         <br>
                         <br />

@@ -40,69 +40,9 @@
 		<link rel="stylesheet" href="../../style/style.css">
 		<link rel="stylesheet" href="../../lib/font-awesome.min.css">
 		<link rel="stylesheet" href="../../lib/font-awesome.css">
+        <link rel="stylesheet" type="text/css" href="../../style/book.css" />
         <style>
-            #bookList{
-                background-color:dimgrey;
-            }
-            #bookList a{
-                color:white;
-            }
-            #midItem {
-                height: 100%;
-                width: 100%;
-                display: flex;
-                
-            }
-            /*content css*/
-            #title {
-                height: 20%;
-                width: 79%;
-                display: flex;
-                
-                margin-top: 6px;
-                margin-left: 6px;
-                flex-flow: wrap;
-            }
-            h1 {
-                background-color: dimgrey;
-                color: white;
-                width: 20%;
-                padding-left: 6px;
-
-            }
-            #searchBar {
-                margin-top: 10px;
-                height: 54px;
-                background-color: dimgrey;
-                color: white;
-                width: 80%;
-                padding-top: 1%;
-                padding-left: 40%
-            }
-            .formButt {
-                
-                height: 30px;
-                width: 100px;
-                background-color: #333;
-                color: white;
-                font-size: 14px;
-                margin-left: 4px;
-            }
-            /*TABLE CSS*/
-            #tableCont{
-               flex-direction:column;
-               width : 90%;
-               margin-top: 0px;
-               border:outset 2px;
-            }
-            th{
-                background-color: dimgray;
-                color:white;
-                font-size: 18px;
-                border: none ;
-                padding-left: 4px;
-                padding-right: 10px;
-            }
+           
         </style>
 	</head>
     <body>
@@ -128,7 +68,7 @@
                 </form>
                 <!--BOOK TABLE-->
                 <div id="tableCont">
-                    <table cellspacing="0" cellpadding="0">
+                    <table cellspacing="0" >
                         <tr>
                             <th>Code</th>
                             <th>Title</th>

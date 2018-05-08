@@ -12,46 +12,9 @@
 		<link rel="stylesheet" href="../../style/style.css">
 		<link rel="stylesheet" href="../../lib/font-awesome.min.css">
 		<link rel="stylesheet" href="../../lib/font-awesome.css">
+        <link rel="stylesheet" type="text/css" href="../../style/news.css" />
 		<style>
-            html {
-                position: relative;
-                min-height: 100%;
-            }
-			#news{
-                background-color: #c1ccdd;
-            }
-            #news:hover{
-                opacity:1;
-            }
-            /*News CSS*/
-            #midItem {
-                height: 100%;
-                width: 100%;
-                display: flex;
-            }
-            h1 {
-                background-color: dimgrey;
-                color: white;
-                padding-left: 5px;
-                margin-bottom: 0px;
-            }
-
-            #newsContent{
-                background-color:lightgray;
-                margin-left: 6px;
-                margin-bottom: 6px;
-                width:100%;
-                height:80%;
-            }
-            #newsList{
-                list-style-type:circle;
-            }
-            .listItem{
-                float:none;
-            }
-            .listItem:hover{
-                opacity:1;
-            }
+           
 		</style>
         <title>News Page</title>
 	</head>

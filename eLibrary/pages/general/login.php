@@ -48,76 +48,12 @@
 		<link rel="stylesheet" href="../../lib/w3.css">
 		<link rel="stylesheet" href="../../lib/w3-theme-riverside.css">
 		<link rel="stylesheet" href="../../style/style.css">
+        <link rel="stylesheet" type="text/css" href ="../../style/login.css" />
         <style>
             body{
                 background-color:darkgray;
             }
-            /*CSS banner*/
-            #bannerCont{
-                margin-top : 10px;
-                width:100%;
-                box-shadow: 5px 5px 5px black;
-            }
-            img{
-                width : 100%;
-            }
-            #centerTxt {
-                position: absolute;
-                top: 9%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                color: white;
-                font-size: 100px;
-            }
-            /*CSS Form*/
-            #textLog{
-                margin-left:10px;
-                font-size: 40px;
-                font-style:normal;
-                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            }
-            #formCont {
-                margin-top: 20px;
-                margin-left: 30%;
-                height: 100%;
-                width: 40%;
-                background-color: lightgray;
-                box-shadow: 2px 2px 5px black;
-            }
-            .formIn{
-                margin-left: 10px;
-                padding-left: 5px;
-                height: 40px;
-                width: 90%;
-            }
-            #pass{
-                margin-top : 18px;
-            }
-            .formButt{
-                margin-top: 10px;
-                margin-bottom: 30px;
-                margin-left: 10px;
-                color:white;
-                background-color:black;
-                width: 70px;
-                height:40px
-            }
-            #cancelButt {
-                padding: 10px 6px 10px 6px;
-                text-decoration: none;
-                border-top: 2px outset;
-                border-right: 2px outset;
-                border-bottom: 2px outset;
-                border-left: 2px outset;
-            }
-            p {
-                /* padding-left: 11em;
-                margin-right: 30em;
-                margin-left: 30em; */
-                text-align: center;
-                background-color: red;
-                color: white;
-            }
+            
         </style>
         <script>
             function goToIndex() {
