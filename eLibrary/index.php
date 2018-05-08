@@ -82,39 +82,6 @@
 		</div>
 			
         <div id="buttCont">
-            <!--<button type="button" class="fbutt" data-toggle="modal" data-target="#modalSignUp">SIGN UP</button>
-    <button type="button" class="fbutt" data-toggle="modal" data-target="#modalLogin">LOGIN</button>
-
-
-    <div class="modal fade" id="modalLogin" role="dialog">
-
-        <form method="post">
-            <h4>Login</h4>
-            <input type=text name="username" placeholder="Username" required/>
-            <input type=text name="password" placeholder="Password" required/>
-            <input type="submit" name="iLogin" value="LOGIN"/>
-            <button type="button">CANCEL</button>
-        </form>
-
-    </div>
-
-    <div class="modal fade" id="modalSignUp" role="dialog">
-
-        <form method="post">
-            <h4>Login</h4>
-            <input type=text name="username" placeholder="Username" required/>
-            <input type=text name="password" placeholder="Password" required/>
-            <input type=text name="ConfirmPassword" placeholder="Confirm Password" required/>
-            <input type=text name="nama" placeholder="Nama" required/>
-            <input type=text name="phone" placeholder="Phone" required/>
-            <input type=text name="alamat" placeholder="Alamat" required/>
-            <input type="submit" name="iRegister" value="REGISTER"/>
-            <button type="button">CANCEL</button>
-        </form>
-
-
-    </div>
-    -->
          <button class="fbutt" id="flog" onclick="goToLogin()" >LOGIN</button>
          <button class="fbutt" id="fsign" onclick="goToSignUp()">SIGN UP</button> 
      </div>
