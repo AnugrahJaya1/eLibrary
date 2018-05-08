@@ -1,4 +1,8 @@
 <?php
+    include("../../connection/connection.php");
+    $sql="SELECT buku.CodeBuku,Tittle,Author,Borrow_Date,Return_Date,Overdue,Fine 
+    FROM buku INNER JOIN peminjaman ON peminjaman.CodeBuku=buku.CodeBuku 
+    INNER JOIN anggota ON anggota.username=peminjaman.username";
 ?>
 <!DOCTYPE html>
 <html>
@@ -82,6 +86,24 @@
                         <th>Overdue</th>
                         <th>Fine</th>
                     </tr>
+                    <?php
+                        $sql .=" WHERE anggota.username='$nama'";
+                        // echo $sql;
+                         if($res=$mysqli->query($sql)){
+                            while($row=$res->fetch_array()){
+                                echo "<tr>";
+                                    echo "<td>".$row["CodeBuku"]."</td>";
+                                    echo "<td>".$row["Tittle"]."</td>";
+                                    echo "<td>".$row["Author"]."</td>";
+                                    echo "<td>".$row["Borrow_Date"]."</td>";
+                                    echo "<td>".$row["Return_Date"]."</td>";
+                                    echo "<td>".$row["Overdue"]."</td>";
+                                    echo "<td>".$row["Fine"]."</td>";
+                                echo "</tr>";
+                            }
+                         }
+                         
+                    ?>
                 </table>
             </div>
         </div>
