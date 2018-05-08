@@ -1,9 +1,7 @@
 <?php
-    include("../../connection/connection.php");
-    $status=false;
-    $m_cookie="message";
-    $s_cookie="status";
-    $message="";
+    include("../connection/connection.php");
+    $_SESSION["message"]="";
+    $_SESSION["status"]=false;;
     session_start();
     $nama=$_SESSION["nama"];
     if(isset($_POST['update'])){
@@ -37,7 +35,7 @@
     }else{
         $message="Password Confirmation doesn't match";
     }
-    // setcookie($m_cookie,$message,$time() + (86400*30));
-    // setcookie($s_cookie,$status,$time() + (86400*30));
+    $_SESSION["status"]=$status;
+    $_SESSION["message"]=$message;
     header("Location: ../pages/general/profile.php");
 ?>
