@@ -16,7 +16,9 @@
     width: 100%;
     display: flex;
 }
-
+p{
+    overflow-y: auto;
+}
 h1 {
     background-color: dimgrey;
     color: white;
