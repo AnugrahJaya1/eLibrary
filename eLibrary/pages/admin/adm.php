@@ -1,5 +1,8 @@
 <?php
-
+if(!isset($_SESSION))
+{
+    session_start();
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,8 +15,34 @@
 		<link rel="stylesheet" href="../../style/style.css">
 		<link rel="stylesheet" href="../../lib/font-awesome.min.css">
 		<link rel="stylesheet" href="../../lib/font-awesome.css">
+        <link rel="stylesheet" type="text/css" href="../../style/adm.css" />
 	</head>
-	<body>
-		<!-- CONTENT -->
-	</body>
+<body>
+    <!-- CONTENT -->
+    <!--TOP ITEM-->
+    <div id="topItem">
+        <!--TOP NAV AND BANNER-->
+        <?php include("../temp/headerAdmin.php"); ?>
+
+
+    </div>
+    <!--MIDDLE ITEM-->
+    <div id="midItem">
+        <!--SIDE NAV BAR-->
+        <?php include("../temp/sideNavAdmin.php"); ?>
+        <!--Main Content-->
+        <div id="content">
+            <h1>Weclome to eLibrary! </h1>
+
+            <div id="parag">
+                <h2>About Us</h2>
+                <p>
+                    eLibrary is a simple Library web where you can download journals for free and search
+                </p>
+            </div>
+        </div>
+    </div>
+    <!--FOOTER-->
+    <?php include("../temp/footer.php");?>
+</body>
 </html>

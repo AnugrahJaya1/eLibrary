@@ -105,6 +105,8 @@ h1 {
 
 .modalForm {
     width: 100%;
+    border:outset;
+    padding-left: 6px;
     margin-bottom: 10px;
 }
 

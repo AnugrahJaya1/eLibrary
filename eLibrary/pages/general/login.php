@@ -25,6 +25,7 @@
                     $row=$res->fetch_array();
                     $_SESSION["username"]=$row['username'];
                     $_SESSION["nama"]=$row['Nama'];
+                    $_SESSION["isadmin"] = $row['IsAdmin'];
                     $isAdmin=$row['IsAdmin'];
                     if($isAdmin==1){
                         header("Location: ../admin/adm.php");
@@ -72,9 +73,9 @@
         <div id="formCont">
             <label id="textLog">Login</label>
             <form method="post" action="" id="login">
-                <input type="text" name="username" class="formIn" id="uname" placeholder="Username" required/>
+                <input type="text" name="username" class="formIn" id="uname" placeholder="Username"/>
                 <br />
-                <input type="password" name="password" class="formIn" id="pass" placeholder="Password" required/>
+                <input type="password" name="password" class="formIn" id="pass" placeholder="Password"/>
                 <br />
                 <input type="submit" name="logButt" class="formButt" value="LOGIN" />
                 <!-- <input type="submit" name="cancelButt" class="formButt" id="cancel" value="CANCEL"  /> -->

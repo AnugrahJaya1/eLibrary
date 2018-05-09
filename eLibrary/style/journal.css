@@ -1,0 +1,88 @@
+﻿#journal {
+    background-color: dimgrey;
+}
+
+    #journal a {
+        color: white;
+    }
+
+
+/*Content CSS*/
+#midItem {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+#content {
+    width: 100%;
+    height: 100%;
+    margin-left: 6px;
+}
+
+h1 {
+    background-color: dimgrey;
+    color: white;
+    padding-left: 5px;
+    margin-bottom: 0px;
+}
+
+#parag {
+    margin-top: 8px;
+    overflow-y: auto;
+    height: 100%;
+    background-color: lightgrey;
+}
+
+h2 {
+    padding-left: 6px;
+}
+
+p {
+    padding-left: 6px;
+}
+/*NavBar CSS*/
+#user {
+    background-color: #c1ccdd;
+}
+
+    #user:hover {
+        opacity: 1;
+    }
+/*Journal CSS*/
+ul {
+    padding-left: 0px;
+    width: 100%;
+    overflow-y: auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+.journTitle {
+    padding-left: 8px;
+    background-color: lightgray;
+    color: black;
+    border-bottom: none;
+}
+
+.writer {
+    padding-left: 8px;
+    background-color: lightgray;
+    color: black;
+    border-bottom: none;
+}
+
+.journals {
+    overflow-y: auto;
+    border-bottom: solid 5px darkgray;
+    background-color: lightgray;
+    float: left;
+    height: 100%;
+    width: 100%
+}
+
+    .journals:hover {
+        opacity: 1;
+    }

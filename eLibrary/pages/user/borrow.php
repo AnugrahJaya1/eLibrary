@@ -1,7 +1,11 @@
 <?php
+if(!isset($_SESSION))
+{
+    session_start();
+}
     include("../../connection/connection.php");
-    $sql="SELECT buku.CodeBuku,Tittle,Author,Borrow_Date,Return_Date,Overdue,Fine 
-    FROM buku INNER JOIN peminjaman ON peminjaman.CodeBuku=buku.CodeBuku 
+    $sql="SELECT buku.CodeBuku,Tittle,Author,Borrow_Date,Return_Date,Overdue,Fine
+    FROM buku INNER JOIN peminjaman ON peminjaman.CodeBuku=buku.CodeBuku
     INNER JOIN anggota ON anggota.username=peminjaman.username";
 ?>
 <!DOCTYPE html>

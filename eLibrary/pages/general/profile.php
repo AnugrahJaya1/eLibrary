@@ -1,3 +1,10 @@
+<?php
+if(!isset($_SESSION))
+{
+    session_start();
+}
+$adm=$_SESSION["isadmin"];
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -17,10 +24,23 @@
 	</head>
     <body>
 	    <!-- CONTENT -->
-	    <?php include("../temp/headerUser.php"); ?>
+        <?php
+        if($adm == 0){
+            include("../temp/headerUser.php");
+        }
+        else{
+            include("../temp/headerAdmin.php");
+        }
+        ?>
         <!--MID Content-->
         <div id="midItem">
-            <!--SIDE NAVBAR--><?php include("../temp/sideNavUser.php");?>
+            <!--SIDE NAVBAR--><?php
+                              if($adm == 0){
+                                  include("../temp/sideNavUser.php");
+                              }else{
+                                  include("../temp/sideNavAdmin.php");
+                              }  
+                              ?>
             
             <div id="formCon">
                 <h1>Profile</h1>

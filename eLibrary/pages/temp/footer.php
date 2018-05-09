@@ -1,9 +1,9 @@
 <style>
     #foot {
         position: absolute;
-        bottom: 0;
+        bottom: -1;
         width: 100%;
-        height: 20px; /* Height of the footer */
+        height: 30px; /* Height of the footer */
         background-color: dimgray;
         color:white;
         margin-top: 30px;

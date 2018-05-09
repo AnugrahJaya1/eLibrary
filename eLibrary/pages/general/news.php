@@ -1,5 +1,9 @@
 <?php
-
+if(!isset($_SESSION))
+{
+    session_start();
+}
+$adm=$_SESSION["isadmin"];
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,10 +24,23 @@
 	</head>
     <body>
         <!-- CONTENT -->
-        <!--TOP NAVBAR--><?php include("../temp/headerUser.php"); ?>
+        <!--TOP NAVBAR--><?php
+                         if($adm == 0){
+                             include("../temp/headerUser.php");
+                         }
+                         else{
+                             include("../temp/headerAdmin.php");
+                         }
+                         ?>
 
         <div id="midItem">
-            <!--SIDE NAVBAR--><?php include("../temp/sideNavUser.php");?>
+            <!--SIDE NAVBAR--><?php
+                              if($adm == 0){
+                                  include("../temp/sideNavUser.php");
+                              }else{
+                                  include("../temp/sideNavAdmin.php");
+                              }
+                              ?>
             <!---->
            
             <div id="newsContent">

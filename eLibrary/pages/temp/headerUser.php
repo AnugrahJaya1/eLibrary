@@ -1,11 +1,5 @@
 <?php
-	session_start();
-    $nama="";
-    if(empty($_SESSION["nama"])){
-        header("Location: ../../index.php");
-    }else{
-        $nama=$_SESSION["nama"];
-    }
+	$nama=$_SESSION["nama"];
 ?>
 
         <style>
