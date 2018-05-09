@@ -14,7 +14,7 @@
             }else if($select=="Author"){
                 $sql .=" WHERE Author LIKE '%$search%' ORDER BY Author ASC";
             }else if($select=="Publish Year"){
-                $sql .=" WHERE Publication Year LIKE '%$search%' ORDER BY Publis Year ASC";
+                $sql .=" WHERE Publication Year LIKE '%$search%' ORDER BY Publication Year ASC";
             }else if($select=="Publisher"){
                 $sql .=" WHERE Publisher LIKE '%$search%' ORDER BY Publisher ASC";
             }else if($select=="Category"){
