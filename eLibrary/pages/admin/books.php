@@ -7,6 +7,7 @@
     $sql="SELECT *,NamaKategori FROM
             buku INNER JOIN kategori_buku ON buku.CodeBuku=kategori_buku.CodeBuku
             INNER JOIN kategori ON kategori.CodeKategori=kategori_buku.CodeKategori";
+
     //handle search book
     if(isset($_POST["searchButt"])){
         $search=$_POST["bookSearch"];
@@ -28,44 +29,65 @@
 
     }
     //handle add book
+    $statusAddBook=false;
     if(isset($_POST["iAdd"])){
         $title=$_POST["title"];
         $author=$_POST["author"];
         $pusblish_year=$_POST["publishyear"];
         $publish=$_POST["publish"];
-        $kategori=$_POST["category"];
         $stock=$_POST["stock"];
 
-        if(isset($title) && isset($author) && isset($pusblish_year) && isset($publish) && isset($kategori) && isset($stock)){
+        $kategori=array();
+        $sql0="SELECT NamaKategori FROM kategori";
+
+        if($res=$mysqli->query($sql0)){
+            while($row=$res->fetch_array()){
+                $namaKategori=$row['NamaKategori'];
+
+                if(isset($_POST[$namaKategori])){
+                    array_push($kategori,$namaKategori);
+                }
+            }
+        }
+        
+        
+        $codeBuku="";
+        $codeKategori="";
+        if(isset($title) && isset($author) && isset($pusblish_year) && isset($publish) && isset($stock)){
             if($title!="" && $author!="" && $pusblish_year!="" && $publish!="" && $kategori!="" && $stock!=""){
                 $codeBuku = generateCode(4);
-                $sql="SELECT CodeBuku FROM buku WHERE CodeBuku='$codeBuku'";
-                $res=$mysqli->query($sql);
+                $sql1="SELECT CodeBuku FROM buku WHERE CodeBuku='$codeBuku'";
+                $res=$mysqli->query($sql1);
                 //handling jika ada duplica code
                 if($res->num_rows!=0){
                     while($res->num_rows!=0){
                         $codeBuku=generateCode(4);
-                        $$sql="SELECT CokeBuku FROM buku WHERE CodeBuku='$codeBuku'";
-                        $res=$mysqli->query($sql);
+                        $$sql1="SELECT CokeBuku FROM buku WHERE CodeBuku='$codeBuku'";
+                        $res=$mysqli->query($sql1);
                     }
                 }
-                //insert to buku
-                $sql="INSERT INTO `buku`(`CodeBuku`, `Tittle`, `Author`, `Publication Year`, `Publisher`, `Stock`) 
-                    VALUES ('$codeBuku','$title','$author','$pusblish_year','$publish','$stock')";
-                $mysqli->query($sql);
 
-                $kategori=$kategori;
-                $sql="SELECT `CodeKategori` FROM `kategori` WHERE LIKE NamaKategori='$kategori'";
-                if($res=$mysqli->query($sql)){
-                    while($row=$res->fetch_array()){
-                        
+                //insert to buku
+                $sql2="INSERT INTO `buku`(`CodeBuku`, `Tittle`, `Author`, `Publication Year`, `Publisher`, `Stock`) 
+                    VALUES ('$codeBuku','$title','$author','$pusblish_year','$publish','$stock')";
+                    $mysqli->query($sql2);
+
+                // inser to kategori_buku
+                for($i=0;$i<sizeof($kategori);$i++){
+                    $namaKategori=$kategori[$i];
+
+                    $sql2="SELECT CodeKategori FROM kategori WHERE NamaKategori='$namaKategori'";
+                    if($res=$mysqli->query($sql2)){
+                        $row=$res->fetch_array();
                         $codeKategori=$row['CodeKategori'];
-                        // echo $codeKategori;
-                        //insert kategori buku
-                        $sql="INSERT INTO `kategori_buku`(`CodeBuku`, `CodeKategori`) VALUES ('$codeBuku','$codeKategori')";
-                        $res=$mysqli->query($sql);
+                        // echo $codeBuku." ".$codeKategori;
+                        $sql2="INSERT INTO kategori_buku (CodeBuku,CodeKategori) VALUES ('$codeBuku','$codeKategori')";
+                        $mysqli->query($sql2);
                     }
                 }
+
+
+                $statusAddBook=true;
                 
             }
         }
@@ -123,7 +145,12 @@
                     </form>
                     <button id="modalButt" onclick="openModal()">ADD BOOK</button>
                 </div>
-                
+                <?php 
+                    if($statusAddBook==true){
+                        echo "<p>".'Book Added'."</p>";
+                        $status=false;
+                    }
+                ?>
                 
                 <!--BOOK TABLE-->
                 <div id="tableCont">
@@ -152,9 +179,9 @@
                     echo "</tr>";
                     }
                 }
-                $sql="SELECT *,NamaKategori FROM
-                buku INNER JOIN kategori_buku ON buku.CodeBuku=kategori_buku.CodeBuku
-                INNER JOIN kategori ON kategori.CodeKategori=kategori_buku.CodeKategori";
+                // $sql="SELECT *,NamaKategori FROM
+                // buku INNER JOIN kategori_buku ON buku.CodeBuku=kategori_buku.CodeBuku
+                // INNER JOIN kategori ON kategori.CodeKategori=kategori_buku.CodeKategori";
                 ?>
                     </table>
                 </div>
@@ -180,17 +207,19 @@
                             <br />
                             <input class="modalForm" type="text" pattern="^[ ]*[+]?[0-9]{1,}[ ]*$" placeholder="Stock" name="stock" />
                             <br>
-                            <select class="modalForm" name="category">
+                            <div data-role="controlgroup">
                                 <?php 
-                                    $sql="SELECT NamaKategori FROM kategori";
-                                    if($res=$mysqli->query($sql)){
-                                        while($row=$res->fetch_array()){
-                                            $namaKategori=$row['NamaKategori'];
-                                            echo "<option value='$namaKategori'>".$namaKategori."</option>";
+                                     $sql="SELECT NamaKategori FROM kategori";
+                                    if($result=$mysqli->query($sql)){
+                                        while($row=$result->fetch_array()){
+                                            $name=$row['NamaKategori'];
+                                            //echo $name." ";
+                                            echo "<label for='$name'>".$name."</label>";
+                                            echo "<input type='checkbox' name='$name' value='$name' />";
                                         }
                                     }
                                 ?>
-                            </select>
+                            </div>
                             <br />
                             <input class="modalForm" type="submit" id="upBott" name="iAdd" value="ADD">
                         </form>
