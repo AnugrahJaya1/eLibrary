@@ -49,7 +49,7 @@ if(!isset($_SESSION))
                     </tr>
                     <?php
                         $sql .=" WHERE anggota.username='$nama'";
-                        echo $sql;
+                        // echo $sql;
                         // echo $sql;
                          if($res=$mysqli->query($sql)){
                             while($row=$res->fetch_array()){
