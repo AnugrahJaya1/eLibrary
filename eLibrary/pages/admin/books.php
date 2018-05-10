@@ -163,26 +163,10 @@
                             <th>Publisher</th>
                             <th>Category</th>
                             <th>Stock</th>
-                        </tr><?php
-                // echo $sql;
-                
-                if($res=$mysqli->query($sql)){
-                    while($row=$res->fetch_array()){
-                    echo "<tr>";
-                    echo "<td>".$row["CodeBuku"]."</td>";
-                    echo "<td>".$row["Tittle"]."</td>";
-                    echo "<td>".$row["Author"]."</td>";
-                    echo "<td>".$row["Publication Year"]."</td>";
-                    echo "<td>".$row["Publisher"]."</td>";
-                    echo "<td>".$row["NamaKategori"]."</td>";
-                    echo "<td>".$row["Stock"]."</td>";
-                    echo "</tr>";
-                    }
-                }
-                // $sql="SELECT *,NamaKategori FROM
-                // buku INNER JOIN kategori_buku ON buku.CodeBuku=kategori_buku.CodeBuku
-                // INNER JOIN kategori ON kategori.CodeKategori=kategori_buku.CodeKategori";
-                ?>
+                        </tr>
+                        <?php 
+                            include("../../controller/getBookList.php");
+                        ?>
                     </table>
                 </div>
             </div>
