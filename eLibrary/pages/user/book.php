@@ -13,24 +13,18 @@ if(!isset($_SESSION))
         $select=$_POST["select"];
 
         if(isset($search) && $search!=""){
-            if($select=="Tittle"){
-                $sql .=" WHERE Tittle LIKE '%$search%' ORDER BY Tittle ASC";
+            if($select=="Title"){
+                $sql .=" WHERE Tittle LIKE '%$search%'";
             }else if($select=="Author"){
-                $sql .=" WHERE Author LIKE '%$search%' ORDER BY Author ASC";
+                $sql .=" WHERE Author LIKE '%$search%'";
             }else if($select=="Publish Year"){
-                $sql .=" WHERE Publication Year LIKE '%$search%' ORDER BY Publis Year ASC";
+                $sql .=" WHERE Publication Year LIKE '%$search%'";
             }else if($select=="Publisher"){
-                $sql .=" WHERE Publisher LIKE '%$search%' ORDER BY Publisher ASC";
+                $sql .=" WHERE Publisher LIKE '%$search%'";
             }else if($select=="Category"){
-                $sql .=" WHERE Kategori LIKE '%$search%' ORDER BY Kategori ASC";
+                $sql .=" WHERE Kategori LIKE '%$search%'";
             }
         }
-        
-        
-        // $sql="SELECT *,NamaKategori FROM
-        // buku INNER JOIN kategori_buku ON buku.CodeBuku=kategori_buku.CodeBuku
-        // INNER JOIN kategori ON kategori.CodeKategori=kategori_buku.CodeBuku";
-
     }
 ?>
 <!DOCTYPE html>
@@ -83,25 +77,7 @@ if(!isset($_SESSION))
                             <th>Stock</th>
                         </tr>
                         <?php 
-                            // echo $sql;
                             include("../../controller/getBookList.php");
-                            // if($res=$mysqli->query($sql)){
-                            //     while($row=$res->fetch_array()){
-                            //         echo "<tr>";
-                            //             echo "<td>".$row["CodeBuku"]."</td>";
-                            //             echo "<td>".$row["Tittle"]."</td>";
-                            //             echo "<td>".$row["Author"]."</td>";
-                            //             echo "<td>".$row["Publication Year"]."</td>";
-                            //             echo "<td>".$row["Publisher"]."</td>";
-                            //             echo "<td>".$row["NamaKategori"]."</td>";
-                            //             echo "<td>".$row["Stock"]."</td>";
-                            //         echo "</tr>";
-                            //     }
-                            // }
-                            // $sql="SELECT *,NamaKategori FROM
-                            //         buku INNER JOIN kategori_buku ON buku.CodeBuku=kategori_buku.CodeBuku
-                            //         INNER JOIN kategori ON kategori.CodeKategori=kategori_buku.CodeKategori";
-
                         ?>
                     </table>
                 </div>
