@@ -2,11 +2,12 @@
 if(!isset($_SESSION))
 {
     session_start();
+    $nama=$_SESSION["nama"];
 }
     include("../../connection/connection.php");
     $sql="SELECT buku.CodeBuku,Tittle,Author,Borrow_Date,Return_Date,Overdue,Fine
     FROM buku INNER JOIN peminjaman ON peminjaman.CodeBuku=buku.CodeBuku
-    INNER JOIN anggota ON anggota.username=peminjaman.username";
+    INNER JOIN anggota ON anggota.IdAnggota=peminjaman.IdAnggota";
 ?>
 <!DOCTYPE html>
 <html>
@@ -48,6 +49,7 @@ if(!isset($_SESSION))
                     </tr>
                     <?php
                         $sql .=" WHERE anggota.username='$nama'";
+                        echo $sql;
                         // echo $sql;
                          if($res=$mysqli->query($sql)){
                             while($row=$res->fetch_array()){
