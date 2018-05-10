@@ -4,6 +4,8 @@
     $_SESSION["status"]=false;;
     session_start();
     $nama=$_SESSION["nama"];
+    $status=false;
+    $changePass=false;
     if(isset($_POST['update'])){
         if(!empty($_POST['password'])){
             if(!empty($_POST['conPassword'])){
@@ -13,6 +15,7 @@
                     $sql="UPDATE anggota SET Password='$pass' WHERE Nama='$nama'";
                     $mysqli->query($sql);
                     $status=true;
+                    $changePass=true;
                 }else{
                     $status=false;
                     
@@ -32,6 +35,9 @@
     }
     if($status==true){
         $message="Profile Update";
+        if($changePass==true){
+            $message .="<br> Please use your password for the next login.";
+        }
     }else{
         $message="Password Confirmation doesn't match";
     }
