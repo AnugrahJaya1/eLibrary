@@ -1,4 +1,5 @@
 <?php
+    $sql .=" ORDER BY Buku.CodeBuku ASC";
     $temp="";
     $codeBuku="";
     $title="";
