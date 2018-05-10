@@ -7,7 +7,7 @@
     $sql="SELECT *,NamaKategori FROM
             buku INNER JOIN kategori_buku ON buku.CodeBuku=kategori_buku.CodeBuku
             INNER JOIN kategori ON kategori.CodeKategori=kategori_buku.CodeKategori";
-
+    //handle search book
     if(isset($_POST["searchButt"])){
         $search=$_POST["bookSearch"];
         $select=$_POST["select"];
@@ -27,6 +27,7 @@
         }
 
     }
+    //handle add book
     if(isset($_POST["iAdd"])){
         $title=$_POST["title"];
         $author=$_POST["author"];
@@ -137,9 +138,7 @@
                             <th>Stock</th>
                         </tr><?php
                 // echo $sql;
-                $sql="SELECT *,NamaKategori FROM
-                buku INNER JOIN kategori_buku ON buku.CodeBuku=kategori_buku.CodeBuku
-                INNER JOIN kategori ON kategori.CodeKategori=kategori_buku.CodeKategori";
+                
                 if($res=$mysqli->query($sql)){
                     while($row=$res->fetch_array()){
                     echo "<tr>";
@@ -153,7 +152,9 @@
                     echo "</tr>";
                     }
                 }
-                
+                $sql="SELECT *,NamaKategori FROM
+                buku INNER JOIN kategori_buku ON buku.CodeBuku=kategori_buku.CodeBuku
+                INNER JOIN kategori ON kategori.CodeKategori=kategori_buku.CodeKategori";
                 ?>
                     </table>
                 </div>
