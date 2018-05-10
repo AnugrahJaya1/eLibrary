@@ -5,8 +5,8 @@
     }
     include("../../connection/connection.php");
     $sql="SELECT *,NamaKategori FROM
-            buku INNER JOIN kategori_buku ON buku.CodeBuku=kategori_buku.CodeBuku
-            INNER JOIN kategori ON kategori.CodeKategori=kategori_buku.CodeKategori";
+    buku INNER JOIN kategori_buku ON buku.CodeBuku=kategori_buku.CodeBuku
+    INNER JOIN kategori ON kategori.CodeKategori=kategori_buku.CodeKategori";
 
     //handle search book
     if(isset($_POST["searchButt"])){
@@ -15,15 +15,15 @@
 
         if(isset($search) && $search!=""){
             if($select=="Title"){
-                $sql .=" WHERE Tittle LIKE '%$search%' ORDER BY Tittle ASC";
+                $sql .=" WHERE Tittle LIKE '%$search%'";
             }else if($select=="Author"){
-                $sql .=" WHERE Author LIKE '%$search%' ORDER BY Author ASC";
+                $sql .=" WHERE Author LIKE '%$search%'";
             }else if($select=="Publish Year"){
-                $sql .=" WHERE Publication Year LIKE '%$search%' ORDER BY Publis Year ASC";
+                $sql .=" WHERE Publication Year LIKE '%$search%'";
             }else if($select=="Publisher"){
-                $sql .=" WHERE Publisher LIKE '%$search%' ORDER BY Publisher ASC";
+                $sql .=" WHERE Publisher LIKE '%$search%'";
             }else if($select=="Category"){
-                $sql .=" WHERE Kategori LIKE '%$search%' ORDER BY Kategori ASC";
+                $sql .=" WHERE Kategori LIKE '%$search%'";
             }
         }
 
