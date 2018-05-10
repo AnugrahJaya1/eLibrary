@@ -106,7 +106,7 @@
 				You are logged is as <?php echo $nama?>
                 <li id="logout"> <a href="../general/logout.php"><i class="fa fa-sign-out"></i></a></li>
                 <li id="profile"> <a href="../general/profile.php"><i class="fa fa-user"></i></a></li>
-                <li id="email"> <a href=""><i class="fa fa-envelope"></i></a></li>
+                <li id="email"> <a href="mailto:7316053@student.unpar.ac.id"><i class="fa fa-envelope"></i></a></li>
                 <li id="news"> <a href="../general/news.php"><i class="fa fa-newspaper-o"></i></a></li>
                 <li id="user"><a href="../user/usr.php"><i class="fa fa-home"></i></a></li>
             </ul>
