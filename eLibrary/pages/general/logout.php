@@ -1,6 +1,7 @@
 <?php
-	session_unset();
-	// session_destroy();
+	// session_unset();
+	session_start();
+	session_destroy();
 
 	if(isset($_POST['flog'])){
 		header("Location: pages/general/login.php");
